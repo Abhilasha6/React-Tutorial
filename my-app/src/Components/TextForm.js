@@ -2,6 +2,15 @@ import React,{useState} from "react";
 // state is equivalent to variable
 export default function TextForm(props) {
 
+  const handleUpClick = ()=>{
+    console.log("Uppercase was clicked" + text);
+    let newText = text.toUpperCase();
+    setText(newText); // converts the old text to uppercase and displays it on the page
+    // setText("you have clicked on handleUpClick");
+  }
+  const handleOnChange = ()=>{
+    console.log("on change");
+  }
   const[text, setText] = useState('Enter text here');
   // setText("hellooo");
 // hooks help us use the properties of a class without using the class
@@ -14,16 +23,14 @@ export default function TextForm(props) {
       <form>
         <div class="mb-3">
           {/* <label for="myBox" class="form-label">Email address</label> */}
-          <input
-            type="email"
-            class="form-control"
+          <textarea
+            className="form-control"
             id="myBox"
-            aria-describedby="emailHelp"
             rows="8"
-
+            onChange={handleOnChange} // it  is required to perform the onclick action we have defined below
             value={text} //adds state to the variable
-          />
-          <button className="btn btn-primary">Convert to uppercase</button>
+          ></textarea>
+          <button className="btn btn-primary" onClick={handleUpClick}>Convert to uppercase</button>
         </div>
       </form>
     </div>
