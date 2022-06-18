@@ -16,7 +16,8 @@ export default function TextForm(props) {
 // hooks help us use the properties of a class without using the class
 //we cannot update the value of a status as we update a normal variable, we have to always define a function to updat a state's value as mentioned in above statement
   return (
-    <div>
+    <>
+    <div className="container">
       { /* <h1>{props.heading} - {text}</h1> */}
       <h1>{props.heading}</h1>
 
@@ -34,5 +35,17 @@ export default function TextForm(props) {
         </div>
       </form>
     </div>
+
+    <div className="container" my-2>
+       {/* my-2 gives margin in y axis */}
+      <h1>your text summary</h1>
+      <p>{text.length} characters and {text.split(" ").length} words</p>
+      <p>{0.008 *text.split(" ").length} minutes to read the characters</p>
+      
+      <h2>preview</h2>
+        <p>{text}</p>
+    </div>
+    </>
+    
   );
 }
