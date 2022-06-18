@@ -8,6 +8,12 @@ export default function TextForm(props) {
     setText(newText); // converts the old text to uppercase and displays it on the page
     // setText("you have clicked on handleUpClick");
   }
+  const handleLowClick = ()=>{
+    console.log("Lowercase was clicked" + text);
+    let newText = text.toLowerCase();
+    setText(newText); // converts the old text to uppercase and displays it on the page
+    // setText("you have clicked on handleUpClick");
+  }
   const handleOnChange = ()=>{
     console.log("on change");
   }
@@ -31,13 +37,14 @@ export default function TextForm(props) {
             onChange={handleOnChange} // it  is required to perform the onclick action we have defined below
             value={text} //adds state to the variable
           ></textarea>
-          <button className="btn btn-primary" onClick={handleUpClick}>Convert to uppercase</button>
+          <button className="btn btn-primary" onClick={handleUpClick} mx-2>Convert to uppercase</button>
+          <button className="btn btn-primary" onClick={handleUpClick} mx-2>Convert to lowercase</button>
         </div>
       </form>
     </div>
 
     <div className="container" my-2>
-       {/* my-2 gives margin in y axis */}
+       {/*these are inbuilt bootstrap classes: my-2 gives margin in y axis  and mx-2 gives margin in x axis*/}
       <h1>your text summary</h1>
       <p>{text.length} characters and {text.split(" ").length} words</p>
       <p>{0.008 *text.split(" ").length} minutes to read the characters</p>
